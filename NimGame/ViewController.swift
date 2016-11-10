@@ -19,9 +19,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var ui_gameTxtView: UITextView!
     @IBOutlet weak var ui_gameView: UIView!
     @IBOutlet weak var ui_gameProgressV: UIProgressView!
-    @IBOutlet weak var nbMachesSelected: UISegmentedControl!
     @IBOutlet weak var ui_but1Match: UIButton!
     @IBOutlet weak var ui_but2Matches: UIButton!
+    @IBOutlet weak var ui_but3Matches: UIButton!
     
     
     let onePlayer:String = "1 Player"
@@ -110,13 +110,24 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                     gameMoveForward()
                 }
             }
+            switch nbMatches {
+            case 1:
+                ui_but2Matches.isHidden = true
+                fallthrough
+            case 2:
+                ui_but3Matches.isHidden = true
+            default:
+                ui_but2Matches.isHidden = false
+                ui_but3Matches.isHidden = false
+                
+            }
             ui_currentPlayerLabel.text = "Player \(joueurEnCours)"
         }
     }
     
     func NimGame(nbPlayer:String) {
         // Prepare the launch of the game
-        ui_gameLabel.text = nbPlayer + "mode"
+        ui_gameLabel.text = nbPlayer + " mode"
         ui_gameLabel.isHidden = false
         ui_gameView.isHidden = false
         isPlayer2TheComputer = (nbPlayer == onePlayer)

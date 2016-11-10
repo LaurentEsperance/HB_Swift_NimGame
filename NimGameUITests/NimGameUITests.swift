@@ -31,6 +31,22 @@ class NimGameUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+                 
+        XCUIDevice.shared().orientation = .portrait
+        
+        let app = XCUIApplication()
+        let nbPlayerWheel = app.pickers["playerNbWheelPicker"]
+        let but1Match = app.buttons["but1match"]
+        let but2Matches = app.buttons["but2matches"]
+        let but3Matches = app.buttons["but3matches"]
+        let curPlayerLabel = app.staticTexts["curPlayerLabel"]
+        let gameMode = app.staticTexts["playerModeLabel"]
+        
+        // Choose the number of player
+        app.pickerWheels.element.adjust(toPickerWheelValue: "1 Player")
+        gameMode.tap()
+        XCTAssertEqual(gameMode.value as! String, "1 Player mode")
+        
     }
     
 }

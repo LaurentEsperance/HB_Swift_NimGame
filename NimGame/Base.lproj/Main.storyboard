@@ -31,7 +31,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQc-61-tEA"/>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQc-61-tEA">
+                                        <accessibility key="accessibilityConfiguration" hint="How many players?" identifier="playerNbWheelPicker" label="Player Number"/>
+                                    </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -44,6 +46,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NbPlayers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEf-dE-w79">
+                                <accessibility key="accessibilityConfiguration" identifier="playerModeLabel" label="Player Mode"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,6 +64,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player currently playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es0-uw-afb">
+                                        <accessibility key="accessibilityConfiguration" identifier="curPlayerLabel" label="current Player"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -69,18 +73,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rvg-t9-KF2">
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeA-9P-WhH">
+                                                <accessibility key="accessibilityConfiguration" identifier="but1Match" label="Button for 1 match"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
                                                     <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ylP-ie-Oos"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOa-1g-MS1">
+                                                <accessibility key="accessibilityConfiguration" identifier="but2Matches" label="Button for 2 matches"/>
                                                 <state key="normal" title="2"/>
                                                 <connections>
                                                     <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ufc-p4-1GY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjG-vV-jUq">
+                                                <accessibility key="accessibilityConfiguration" identifier="but3matches" label="Button for 3 matches"/>
                                                 <state key="normal" title="3"/>
                                                 <connections>
                                                     <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nTi-rC-HUl"/>
@@ -132,8 +139,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ui_but1Match" destination="oeA-9P-WhH" id="0ga-tc-DV1"/>
+                        <outlet property="ui_but1Match" destination="oeA-9P-WhH" id="RB9-gF-YEH"/>
                         <outlet property="ui_but2Matches" destination="tOa-1g-MS1" id="vGZ-lw-h75"/>
+                        <outlet property="ui_but3Matches" destination="vjG-vV-jUq" id="b3y-lU-9bm"/>
                         <outlet property="ui_currentPlayerLabel" destination="es0-uw-afb" id="cOB-71-BTM"/>
                         <outlet property="ui_gameLabel" destination="jEf-dE-w79" id="xaf-Lk-dJC"/>
                         <outlet property="ui_gameProgressV" destination="dvd-lh-Hp8" id="wa4-Sp-e0b"/>
