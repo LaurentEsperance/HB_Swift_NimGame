@@ -33,6 +33,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var joueurEnCours : Int = 0
     var nbMatchesChosenByPlayer:Int = 0
     var turn:Int = 0
+    let userDefaults:UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         ui_nbPlayerView.isHidden = false
         ui_gameLabel.isHidden = true
         ui_gameView.isHidden = true
-        nbMatches = nbMatchesMax
+        //nbMatches = nbMatchesMax
+        nbMatches = userDefaults.integer(forKey: "MAX_MATCHES")
         joueurEnCours = 0
         nbMatchesChosenByPlayer = 0
         turn = 0
@@ -132,7 +134,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         ui_gameView.isHidden = false
         isPlayer2TheComputer = (nbPlayer == onePlayer)
         // The first player is chosen randomly
-        joueurEnCours = generateRandomNumber(min: 1, max: 2)
+        if (userDefaults.bool(forKey: "IS_START_RANDOM")) {
+           joueurEnCours = generateRandomNumber(min: 1, max: 2)
+        } else {
+            joueurEnCours = 2
+        }
         //ui_gameTxtView.text = "There is \(nbMatches) matches in the game\n"
         gameMoveForward()
     }

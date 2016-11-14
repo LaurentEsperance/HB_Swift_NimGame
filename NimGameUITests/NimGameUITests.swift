@@ -41,11 +41,49 @@ class NimGameUITests: XCTestCase {
         let but3Matches = app.buttons["but3matches"]
         let curPlayerLabel = app.staticTexts["curPlayerLabel"]
         let gameMode = app.staticTexts["playerModeLabel"]
+        let butSettings = app.buttons["main_vc_settings_button"]
+        let butBackFromSettings = app.buttons["sett_CV_back_button"]
+        let nbMatchesTextEdit =  app.textFields["max_matches_text_edit"]
+        let randStartSwitch = app.switches["rand_start_switch"]
+        //let clearTextInNbMatchesTextEdit = app.buttons["Clear text"]
+        
+        
+        // TEST for 2 players //
+        XCTAssertTrue(nbPlayerWheel.exists, "The wheelpicker should appear at the launch of the app")
+        XCTAssertFalse(but1Match.exists, "The button for 1 match should NOT appear at the launch of the app")
+        XCTAssertFalse(but2Matches.exists, "The button for 2 matches should NOT appear at the launch of the app")
+        XCTAssertFalse(but3Matches.exists, "The button for 3 matches should NOT appear at the launch of the app")
+        
+        // Choose the number of matches
+        butSettings.tap()
+        XCTAssertFalse(nbPlayerWheel.exists, "The wheelpicker should NOT appear on settings view")
+        XCTAssertFalse(but1Match.exists, "The button for 1 match should NOT appear on settings view")
+        XCTAssertFalse(but2Matches.exists, "The button for 2 matches should NOT appear on settings view")
+        XCTAssertFalse(but3Matches.exists, "The button for 3 matches should NOT appear on settings view")
+        XCTAssertTrue(butBackFromSettings.exists, "The button for 3 matches should appear on settings view")
+        XCTAssertTrue(nbMatchesTextEdit.exists, "The editText should appear on settings view")
+        
+        nbMatchesTextEdit.tap()
+        nbMatchesTextEdit.typeText("20")
+        // Test if the number of matches had been saved
+        butBackFromSettings.tap()
+        butSettings.tap()
+        XCTAssertTrue((nbMatchesTextEdit.value != nil), "20")
+        butBackFromSettings.tap()
+        
+        // Start the game with no random first player
+        butSettings.tap()
+        
+        if (randStartSwitch.isEnabled) {
+            randStartSwitch.tap()
+        }
+        butBackFromSettings.tap()
         
         // Choose the number of player
-        app.pickerWheels.element.adjust(toPickerWheelValue: "1 Player")
+        app.pickerWheels.element.adjust(toPickerWheelValue: "2 Players")
         gameMode.tap()
-        XCTAssertEqual(gameMode.value as! String, "1 Player mode")
+        XCTAssertEqual(gameMode.label, "2 Players mode")
+        XCTAssertEqual(curPlayerLabel.label, "Player 1")
         
     }
     

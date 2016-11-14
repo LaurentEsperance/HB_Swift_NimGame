@@ -13,6 +13,7 @@
 		884C81991DD46666001107B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884C81981DD46666001107B4 /* Assets.xcassets */; };
 		884C819C1DD46666001107B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884C819A1DD46666001107B4 /* LaunchScreen.storyboard */; };
 		884C81A71DD46666001107B4 /* NimGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C81A61DD46666001107B4 /* NimGameUITests.swift */; };
+		8874D9FF1DD9C3CC00C64C17 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874D9FE1DD9C3CC00C64C17 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		884C81A21DD46666001107B4 /* NimGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NimGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		884C81A61DD46666001107B4 /* NimGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimGameUITests.swift; sourceTree = "<group>"; };
 		884C81A81DD46666001107B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8874D9FE1DD9C3CC00C64C17 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		884C81901DD46666001107B4 /* NimGame */ = {
 			isa = PBXGroup;
 			children = (
+				8874D9FE1DD9C3CC00C64C17 /* SettingsViewController.swift */,
 				884C81911DD46666001107B4 /* AppDelegate.swift */,
 				884C81931DD46666001107B4 /* ViewController.swift */,
 				884C81951DD46666001107B4 /* Main.storyboard */,
@@ -201,6 +204,7 @@
 			files = (
 				884C81941DD46666001107B4 /* ViewController.swift in Sources */,
 				884C81921DD46666001107B4 /* AppDelegate.swift in Sources */,
+				8874D9FF1DD9C3CC00C64C17 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +408,7 @@
 				884C81AD1DD46666001107B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		884C81AE1DD46666001107B4 /* Build configuration list for PBXNativeTarget "NimGameUITests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +417,7 @@
 				884C81B01DD46666001107B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

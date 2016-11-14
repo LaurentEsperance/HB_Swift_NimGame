@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NbPlayers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEf-dE-w79">
-                                <accessibility key="accessibilityConfiguration" identifier="playerModeLabel" label="Player Mode"/>
+                                <accessibility key="accessibilityConfiguration" identifier="playerModeLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player currently playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es0-uw-afb">
-                                        <accessibility key="accessibilityConfiguration" identifier="curPlayerLabel" label="current Player"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="curPlayerLabel"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -114,11 +114,20 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufj-3Z-bY4">
-                                <frame key="frameInset" minX="315" minY="629" width="31" height="30"/>
+                                <frame key="frameInset" minX="22" minY="617" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New"/>
                                 <connections>
                                     <action selector="newGameBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qbG-MX-izm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su3-jy-O2v">
+                                <frame key="frameInset" minX="297" minY="617" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="main_vc_settings_button"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="aFc-Qn-hlP" kind="show" id="CRv-Oy-SUn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -155,6 +164,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="G9k-Hg-f1W">
+            <objects>
+                <viewController id="aFc-Qn-hlP" customClass="SettingsViewController" customModule="NimGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B7G-2f-zyc"/>
+                        <viewControllerLayoutGuide type="bottom" id="sFw-8Q-Kd6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5WT-ja-5r9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp1-cU-xS8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Matches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFa-24-c45">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="20" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vk7-D1-6R1">
+                                <accessibility key="accessibilityConfiguration" identifier="max_matches_text_edit"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxx-FV-lFp">
+                                <accessibility key="accessibilityConfiguration" identifier="sett_CV_back_button"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="ui_backButton" destination="aFc-Qn-hlP" eventType="touchUpInside" id="7CJ-tQ-p1b"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rf-8r-gJM">
+                                <frame key="frameInset" minX="156" minY="131" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="rand_start_switch"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Random Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNE-pv-MqE">
+                                <frame key="frameInset" minX="16" minY="136" width="106" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="vk7-D1-6R1" secondAttribute="trailing" constant="20" id="2xa-4Q-pjF"/>
+                            <constraint firstItem="CFa-24-c45" firstAttribute="top" secondItem="qp1-cU-xS8" secondAttribute="bottom" constant="30" id="Fzz-9t-s9q"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="CFa-24-c45" secondAttribute="leading" id="GNl-u0-ev0"/>
+                            <constraint firstItem="vk7-D1-6R1" firstAttribute="baseline" secondItem="CFa-24-c45" secondAttribute="baseline" id="NhZ-9h-1Yt"/>
+                            <constraint firstItem="qp1-cU-xS8" firstAttribute="top" secondItem="B7G-2f-zyc" secondAttribute="bottom" constant="8" id="aef-VA-WD9"/>
+                            <constraint firstItem="vk7-D1-6R1" firstAttribute="leading" secondItem="CFa-24-c45" secondAttribute="trailing" constant="37" id="e2a-3O-D25"/>
+                            <constraint firstItem="qp1-cU-xS8" firstAttribute="centerX" secondItem="5WT-ja-5r9" secondAttribute="centerX" id="edQ-KE-KNQ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Kxx-FV-lFp" secondAttribute="leading" id="wKZ-ma-3Od"/>
+                            <constraint firstItem="Kxx-FV-lFp" firstAttribute="baseline" secondItem="qp1-cU-xS8" secondAttribute="baseline" id="ykK-Dp-iUJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ui_nbMaxMatchesLabel" destination="vk7-D1-6R1" id="hZR-JT-YGF"/>
+                        <outlet property="ui_randomStartSwitch" destination="9rf-8r-gJM" id="JWf-qU-GU1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1B-rX-7GV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="848.79999999999995" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
