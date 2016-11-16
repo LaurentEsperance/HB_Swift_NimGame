@@ -47,7 +47,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         ui_nbPlayerView.isHidden = false
         ui_gameLabel.isHidden = true
         ui_gameView.isHidden = true
-        //nbMatches = nbMatchesMax
         nbMatches = userDefaults.integer(forKey: "MAX_MATCHES")
         joueurEnCours = 0
         nbMatchesChosenByPlayer = 0
@@ -170,6 +169,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let range = max-min + 1
         return Int(arc4random_uniform(UInt32(range))) + min
     }
+    
+    /*func playerChoice() -> Player{
+        
+    }*/
     
 }
 

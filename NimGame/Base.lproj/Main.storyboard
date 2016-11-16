@@ -70,7 +70,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dvd-lh-Hp8"/>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rvg-t9-KF2">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rvg-t9-KF2">
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeA-9P-WhH">
                                                 <accessibility key="accessibilityConfiguration" identifier="but1Match" label="Button for 1 match"/>
@@ -94,6 +94,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,6 +129,14 @@
                                 <state key="normal" title="Settings"/>
                                 <connections>
                                     <segue destination="aFc-Qn-hlP" kind="show" id="CRv-Oy-SUn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9D-PC-pM1">
+                                <frame key="frameInset" minX="163" minY="617" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Scores"/>
+                                <connections>
+                                    <segue destination="tOO-iD-yBi" kind="show" id="Wbs-5e-Chk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -191,7 +200,7 @@
                                 <accessibility key="accessibilityConfiguration" identifier="max_matches_text_edit"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxx-FV-lFp">
                                 <accessibility key="accessibilityConfiguration" identifier="sett_CV_back_button"/>
@@ -234,6 +243,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1B-rX-7GV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="848.79999999999995" y="122.78860569715144"/>
+        </scene>
+        <!--Score View Controller-->
+        <scene sceneID="NcF-2c-Nks">
+            <objects>
+                <viewController id="tOO-iD-yBi" customClass="ScoreViewController" customModule="NimGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yOA-WE-GYx"/>
+                        <viewControllerLayoutGuide type="bottom" id="XJu-e6-oeO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M9d-JZ-rRJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3d-68-KE2">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J54-Aj-GdV">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="90" id="5TQ-X9-dYk" customClass="TableViewCell" customModule="NimGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5TQ-X9-dYk" id="6bY-9S-Ogm">
+                                            <frame key="frameInset" width="343" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-VW-6hA">
+                                                    <frame key="frameInset" minX="24" minY="11" width="97" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fo1-gg-Ea0">
+                                                    <frame key="frameInset" minX="275" minY="11" width="45" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ui_playerNameLabel" destination="4oO-VW-6hA" id="rh9-HK-szt"/>
+                                            <outlet property="ui_playerScoreLabel" destination="Fo1-gg-Ea0" id="mdC-AF-HNv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMg-sb-DsU">
+                                <accessibility key="accessibilityConfiguration" identifier="back_button_from_score_list"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="ui_backButton" destination="aFc-Qn-hlP" eventType="touchUpInside" id="6b5-BW-uwP"/>
+                                    <action selector="ui_backButtonfromScoreList" destination="tOO-iD-yBi" eventType="touchUpInside" id="Ccg-fO-Yfb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y3d-68-KE2" firstAttribute="top" secondItem="yOA-WE-GYx" secondAttribute="bottom" id="8XE-ZV-dYC"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="J54-Aj-GdV" secondAttribute="leading" id="9Ca-so-SW5"/>
+                            <constraint firstItem="XJu-e6-oeO" firstAttribute="top" secondItem="J54-Aj-GdV" secondAttribute="bottom" constant="40" id="M74-ba-cZ1"/>
+                            <constraint firstItem="J54-Aj-GdV" firstAttribute="top" secondItem="Y3d-68-KE2" secondAttribute="bottom" constant="27" id="Q6p-IT-KB4"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="BMg-sb-DsU" secondAttribute="leading" id="SPE-F1-2at"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J54-Aj-GdV" secondAttribute="trailing" id="cEG-GP-1cw"/>
+                            <constraint firstItem="BMg-sb-DsU" firstAttribute="baseline" secondItem="Y3d-68-KE2" secondAttribute="baseline" id="lNR-Aq-Dqs"/>
+                            <constraint firstItem="Y3d-68-KE2" firstAttribute="centerX" secondItem="M9d-JZ-rRJ" secondAttribute="centerX" id="mso-3U-X0m"/>
+                            <constraint firstItem="J54-Aj-GdV" firstAttribute="centerX" secondItem="M9d-JZ-rRJ" secondAttribute="centerX" id="w8B-oU-R5n"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ui_scoresTableView" destination="J54-Aj-GdV" id="Oqv-hg-JnG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aR1-RB-xIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="882.90854572713647"/>
         </scene>
     </scenes>
 </document>

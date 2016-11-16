@@ -14,6 +14,9 @@
 		884C819C1DD46666001107B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884C819A1DD46666001107B4 /* LaunchScreen.storyboard */; };
 		884C81A71DD46666001107B4 /* NimGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C81A61DD46666001107B4 /* NimGameUITests.swift */; };
 		8874D9FF1DD9C3CC00C64C17 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874D9FE1DD9C3CC00C64C17 /* SettingsViewController.swift */; };
+		8874DA011DD9F5FE00C64C17 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874DA001DD9F5FE00C64C17 /* Player.swift */; };
+		8874DA031DD9FA1800C64C17 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874DA021DD9FA1800C64C17 /* ScoreViewController.swift */; };
+		88D910CB1DDA0E2F0004C24A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D910CA1DDA0E2F0004C24A /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		884C81A61DD46666001107B4 /* NimGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimGameUITests.swift; sourceTree = "<group>"; };
 		884C81A81DD46666001107B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8874D9FE1DD9C3CC00C64C17 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8874DA001DD9F5FE00C64C17 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		8874DA021DD9FA1800C64C17 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		88D910CA1DDA0E2F0004C24A /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,9 @@
 				884C81981DD46666001107B4 /* Assets.xcassets */,
 				884C819A1DD46666001107B4 /* LaunchScreen.storyboard */,
 				884C819D1DD46666001107B4 /* Info.plist */,
+				8874DA001DD9F5FE00C64C17 /* Player.swift */,
+				8874DA021DD9FA1800C64C17 /* ScoreViewController.swift */,
+				88D910CA1DDA0E2F0004C24A /* TableViewCell.swift */,
 			);
 			path = NimGame;
 			sourceTree = "<group>";
@@ -202,7 +211,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8874DA011DD9F5FE00C64C17 /* Player.swift in Sources */,
 				884C81941DD46666001107B4 /* ViewController.swift in Sources */,
+				8874DA031DD9FA1800C64C17 /* ScoreViewController.swift in Sources */,
+				88D910CB1DDA0E2F0004C24A /* TableViewCell.swift in Sources */,
 				884C81921DD46666001107B4 /* AppDelegate.swift in Sources */,
 				8874D9FF1DD9C3CC00C64C17 /* SettingsViewController.swift in Sources */,
 			);
