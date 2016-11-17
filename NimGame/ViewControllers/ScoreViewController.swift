@@ -43,14 +43,14 @@ class ScoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         let cellIdentifier = "TableViewCell"
         let cellc = self.ui_scoresTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
         //cellc.textLabel?.text = playerTable[indexPath.row]._name
-        cellc.ui_playerNameLabel.text = playerTable[indexPath.row]._name
-        cellc.ui_playerScoreLabel.text = String(playerTable[indexPath.row]._score)
+        cellc.ui_playerNameLabel.text = playerTable[indexPath.row].name
+        cellc.ui_playerScoreLabel.text = String(playerTable[indexPath.row].score)
 
         return cellc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Player \(playerTable[indexPath.row]._name) has been chosen")
+        print("Player \(playerTable[indexPath.row].name) has been chosen")
     }
     /*
     // MARK: - Navigation

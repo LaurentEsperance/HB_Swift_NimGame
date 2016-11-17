@@ -9,8 +9,8 @@
 import Foundation
 
 class Player {
-    var _name:String
-    var _score:Int
+    private var _name:String
+    private var _score:Int
     
     var name:String {
         get{
@@ -32,6 +32,11 @@ class Player {
     init() {
         _name = ""
         _score = 0
+    }
+    
+    init(name:String) {
+        self._name = name
+        self._score = 0
     }
     
     init(name:String, score:Int) {

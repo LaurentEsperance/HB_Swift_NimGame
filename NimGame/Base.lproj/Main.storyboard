@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zPd-M1-ymy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -7,10 +7,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="tl0-p8-Gbb">
+            <objects>
+                <navigationController id="zPd-M1-ymy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hhz-Qm-5w5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3uc-qY-F3p"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EEw-qT-JG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-713" y="123"/>
+        </scene>
+        <!--Jeu de Nim-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NimGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NimGame" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,11 +35,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jeu de Nim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahr-77-2YI">
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKn-nm-XVd">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Combien de joueurs ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ys6-gF-Y99">
@@ -114,48 +125,73 @@
                                     <constraint firstItem="Rvg-t9-KF2" firstAttribute="top" secondItem="b4E-PS-leW" secondAttribute="bottom" constant="78" id="zfj-ii-hlr"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufj-3Z-bY4">
-                                <frame key="frameInset" minX="22" minY="617" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="New"/>
-                                <connections>
-                                    <action selector="newGameBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qbG-MX-izm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su3-jy-O2v">
-                                <frame key="frameInset" minX="297" minY="617" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="main_vc_settings_button"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="aFc-Qn-hlP" kind="show" id="CRv-Oy-SUn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9D-PC-pM1">
-                                <frame key="frameInset" minX="163" minY="617" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Scores"/>
-                                <connections>
-                                    <segue destination="tOO-iD-yBi" kind="show" id="Wbs-5e-Chk"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRQ-ah-DPn" userLabel="Ui Player Choice">
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oHd-f5-OBt">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Choice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-L9-08H">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oHd-f5-OBt" secondAttribute="trailing" constant="60" id="VoF-EF-4wb"/>
+                                    <constraint firstItem="YaH-L9-08H" firstAttribute="centerX" secondItem="uRQ-ah-DPn" secondAttribute="centerX" id="bzr-N8-uzX"/>
+                                    <constraint firstItem="oHd-f5-OBt" firstAttribute="top" secondItem="YaH-L9-08H" secondAttribute="bottom" constant="25" id="iMN-wH-xap"/>
+                                    <constraint firstItem="oHd-f5-OBt" firstAttribute="leading" secondItem="uRQ-ah-DPn" secondAttribute="leading" constant="60" id="nXH-5K-5cE"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="h6Z-hk-pNa">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufj-3Z-bY4">
+                                        <state key="normal" title="New"/>
+                                        <connections>
+                                            <action selector="newGameBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qbG-MX-izm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9D-PC-pM1">
+                                        <state key="normal" title="Scores"/>
+                                        <connections>
+                                            <segue destination="tOO-iD-yBi" kind="show" id="Wbs-5e-Chk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="su3-jy-O2v">
+                                        <accessibility key="accessibilityConfiguration" identifier="main_vc_settings_button"/>
+                                        <state key="normal" title="Settings"/>
+                                        <connections>
+                                            <segue destination="aFc-Qn-hlP" kind="show" id="CRv-Oy-SUn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="uRQ-ah-DPn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="0ZA-59-aUv"/>
                             <constraint firstItem="0kc-HW-EYt" firstAttribute="top" secondItem="jEf-dE-w79" secondAttribute="bottom" constant="16" id="1Wr-03-vqE"/>
                             <constraint firstItem="PKn-nm-XVd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Mo-Fa-aY2"/>
                             <constraint firstItem="0kc-HW-EYt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9fP-KK-lyw"/>
                             <constraint firstItem="PKn-nm-XVd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bxn-I9-o2S"/>
-                            <constraint firstItem="Ahr-77-2YI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CdC-6X-d8B"/>
-                            <constraint firstItem="Ahr-77-2YI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GvL-w5-4O8"/>
-                            <constraint firstItem="jEf-dE-w79" firstAttribute="top" secondItem="Ahr-77-2YI" secondAttribute="bottom" constant="29.5" id="YTS-PS-Bur"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uRQ-ah-DPn" secondAttribute="trailing" constant="-16" id="Ews-My-DbL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h6Z-hk-pNa" secondAttribute="trailing" constant="10" id="Fwu-Oc-IBi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uRQ-ah-DPn" secondAttribute="bottom" constant="79" id="L0M-fA-gwD"/>
+                            <constraint firstItem="h6Z-hk-pNa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="YsG-UE-EgT"/>
                             <constraint firstAttribute="trailing" secondItem="0kc-HW-EYt" secondAttribute="trailing" id="ZUZ-Cg-rps"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oHd-f5-OBt" secondAttribute="bottom" constant="150" id="ade-ye-jxU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PKn-nm-XVd" secondAttribute="trailing" constant="-16" id="cXw-HC-tgS"/>
                             <constraint firstItem="PKn-nm-XVd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="d0r-Bf-cRe"/>
+                            <constraint firstItem="uRQ-ah-DPn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="iwr-hq-3qf"/>
                             <constraint firstItem="jEf-dE-w79" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kX2-YU-xRN"/>
+                            <constraint firstItem="jEf-dE-w79" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="63" id="skY-jG-Nvx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h6Z-hk-pNa" secondAttribute="bottom" constant="20" id="toT-5U-GM5"/>
+                            <constraint firstItem="YaH-L9-08H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="51" id="u5q-Vs-Cj5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0kc-HW-EYt" secondAttribute="bottom" constant="104" id="uH9-Nm-pPX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Jeu de Nim" id="KX4-8g-8M2"/>
                     <connections>
                         <outlet property="ui_but1Match" destination="oeA-9P-WhH" id="RB9-gF-YEH"/>
                         <outlet property="ui_but2Matches" destination="tOa-1g-MS1" id="vGZ-lw-h75"/>
@@ -168,16 +204,18 @@
                         <outlet property="ui_nbMatchesLabel" destination="jos-QK-ZGe" id="bv7-Df-wEo"/>
                         <outlet property="ui_nbPlayerView" destination="PKn-nm-XVd" id="Yic-Hf-WGi"/>
                         <outlet property="ui_pickerView" destination="qQc-61-tEA" id="fsY-Tb-ncw"/>
+                        <outlet property="ui_playerChoiceTable" destination="oHd-f5-OBt" id="2R4-JT-DK4"/>
+                        <outlet property="ui_playerChoiceView" destination="uRQ-ah-DPn" id="aqb-Wg-cSX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Réglages-->
         <scene sceneID="G9k-Hg-f1W">
             <objects>
-                <viewController id="aFc-Qn-hlP" customClass="SettingsViewController" customModule="NimGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aFc-Qn-hlP" customClass="SettingsViewController" customModule="NimGame" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B7G-2f-zyc"/>
                         <viewControllerLayoutGuide type="bottom" id="sFw-8Q-Kd6"/>
@@ -186,7 +224,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp1-cU-xS8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp1-cU-xS8">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -200,19 +238,15 @@
                                 <accessibility key="accessibilityConfiguration" identifier="max_matches_text_edit"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxx-FV-lFp">
-                                <accessibility key="accessibilityConfiguration" identifier="sett_CV_back_button"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="ui_backButton" destination="aFc-Qn-hlP" eventType="touchUpInside" id="7CJ-tQ-p1b"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rf-8r-gJM">
                                 <frame key="frameInset" minX="156" minY="131" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="rand_start_switch"/>
+                                <connections>
+                                    <action selector="ui_switchChanged" destination="aFc-Qn-hlP" eventType="valueChanged" id="ePk-NE-nLl"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Random Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNE-pv-MqE">
                                 <frame key="frameInset" minX="16" minY="136" width="106" height="21"/>
@@ -221,20 +255,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxx-FV-lFp">
+                                <accessibility key="accessibilityConfiguration" identifier="sett_CV_back_button"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="ui_backButton" destination="aFc-Qn-hlP" eventType="touchUpInside" id="7CJ-tQ-p1b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="vk7-D1-6R1" secondAttribute="trailing" constant="20" id="2xa-4Q-pjF"/>
+                            <constraint firstItem="Kxx-FV-lFp" firstAttribute="top" secondItem="B7G-2f-zyc" secondAttribute="bottom" constant="129" id="73L-tV-yyI"/>
+                            <constraint firstItem="Kxx-FV-lFp" firstAttribute="centerX" secondItem="5WT-ja-5r9" secondAttribute="centerX" id="BKv-9G-uuU"/>
                             <constraint firstItem="CFa-24-c45" firstAttribute="top" secondItem="qp1-cU-xS8" secondAttribute="bottom" constant="30" id="Fzz-9t-s9q"/>
                             <constraint firstAttribute="leadingMargin" secondItem="CFa-24-c45" secondAttribute="leading" id="GNl-u0-ev0"/>
                             <constraint firstItem="vk7-D1-6R1" firstAttribute="baseline" secondItem="CFa-24-c45" secondAttribute="baseline" id="NhZ-9h-1Yt"/>
                             <constraint firstItem="qp1-cU-xS8" firstAttribute="top" secondItem="B7G-2f-zyc" secondAttribute="bottom" constant="8" id="aef-VA-WD9"/>
                             <constraint firstItem="vk7-D1-6R1" firstAttribute="leading" secondItem="CFa-24-c45" secondAttribute="trailing" constant="37" id="e2a-3O-D25"/>
                             <constraint firstItem="qp1-cU-xS8" firstAttribute="centerX" secondItem="5WT-ja-5r9" secondAttribute="centerX" id="edQ-KE-KNQ"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Kxx-FV-lFp" secondAttribute="leading" id="wKZ-ma-3Od"/>
-                            <constraint firstItem="Kxx-FV-lFp" firstAttribute="baseline" secondItem="qp1-cU-xS8" secondAttribute="baseline" id="ykK-Dp-iUJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Réglages" id="haN-9y-p4z"/>
                     <connections>
                         <outlet property="ui_nbMaxMatchesLabel" destination="vk7-D1-6R1" id="hZR-JT-YGF"/>
                         <outlet property="ui_randomStartSwitch" destination="9rf-8r-gJM" id="JWf-qU-GU1"/>
@@ -244,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="848.79999999999995" y="122.78860569715144"/>
         </scene>
-        <!--Score View Controller-->
+        <!--Scores-->
         <scene sceneID="NcF-2c-Nks">
             <objects>
-                <viewController id="tOO-iD-yBi" customClass="ScoreViewController" customModule="NimGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tOO-iD-yBi" customClass="ScoreViewController" customModule="NimGame" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yOA-WE-GYx"/>
                         <viewControllerLayoutGuide type="bottom" id="XJu-e6-oeO"/>
@@ -256,19 +298,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3d-68-KE2">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="J54-Aj-GdV">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="90" id="5TQ-X9-dYk" customClass="TableViewCell" customModule="NimGame" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="90"/>
+                                        <rect key="frame" x="0.0" y="92" width="343" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5TQ-X9-dYk" id="6bY-9S-Ogm">
-                                            <frame key="frameInset" width="343" height="89"/>
+                                            <frame key="frameInset" width="343" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-VW-6hA">
@@ -294,28 +331,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMg-sb-DsU">
-                                <accessibility key="accessibilityConfiguration" identifier="back_button_from_score_list"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="ui_backButton" destination="aFc-Qn-hlP" eventType="touchUpInside" id="6b5-BW-uwP"/>
-                                    <action selector="ui_backButtonfromScoreList" destination="tOO-iD-yBi" eventType="touchUpInside" id="Ccg-fO-Yfb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Y3d-68-KE2" firstAttribute="top" secondItem="yOA-WE-GYx" secondAttribute="bottom" id="8XE-ZV-dYC"/>
                             <constraint firstAttribute="leadingMargin" secondItem="J54-Aj-GdV" secondAttribute="leading" id="9Ca-so-SW5"/>
                             <constraint firstItem="XJu-e6-oeO" firstAttribute="top" secondItem="J54-Aj-GdV" secondAttribute="bottom" constant="40" id="M74-ba-cZ1"/>
-                            <constraint firstItem="J54-Aj-GdV" firstAttribute="top" secondItem="Y3d-68-KE2" secondAttribute="bottom" constant="27" id="Q6p-IT-KB4"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="BMg-sb-DsU" secondAttribute="leading" id="SPE-F1-2at"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J54-Aj-GdV" secondAttribute="trailing" id="cEG-GP-1cw"/>
-                            <constraint firstItem="BMg-sb-DsU" firstAttribute="baseline" secondItem="Y3d-68-KE2" secondAttribute="baseline" id="lNR-Aq-Dqs"/>
-                            <constraint firstItem="Y3d-68-KE2" firstAttribute="centerX" secondItem="M9d-JZ-rRJ" secondAttribute="centerX" id="mso-3U-X0m"/>
+                            <constraint firstItem="J54-Aj-GdV" firstAttribute="top" secondItem="yOA-WE-GYx" secondAttribute="bottom" constant="3.5" id="u6y-9J-4bC"/>
                             <constraint firstItem="J54-Aj-GdV" firstAttribute="centerX" secondItem="M9d-JZ-rRJ" secondAttribute="centerX" id="w8B-oU-R5n"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Scores" id="TqM-1J-JDk"/>
                     <connections>
                         <outlet property="ui_scoresTableView" destination="J54-Aj-GdV" id="Oqv-hg-JnG"/>
                     </connections>
