@@ -14,6 +14,8 @@
 		883FBBA41DDDDCBA0092C37D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FBBA01DDDDCBA0092C37D /* ViewController.swift */; };
 		883FBBA61DDDDD5F0092C37D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FBBA51DDDDD5F0092C37D /* Game.swift */; };
 		883FBBA81DDDDD740092C37D /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FBBA71DDDDD740092C37D /* SettingsManager.swift */; };
+		883FBBAC1DDDF2260092C37D /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FBBAB1DDDF2260092C37D /* Tool.swift */; };
+		883FBBAE1DDEEF4B0092C37D /* ComputerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FBBAD1DDEEF4B0092C37D /* ComputerPlayer.swift */; };
 		884C81921DD46666001107B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C81911DD46666001107B4 /* AppDelegate.swift */; };
 		884C81971DD46666001107B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884C81951DD46666001107B4 /* Main.storyboard */; };
 		884C81991DD46666001107B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884C81981DD46666001107B4 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		883FBBA01DDDDCBA0092C37D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		883FBBA51DDDDD5F0092C37D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		883FBBA71DDDDD740092C37D /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		883FBBAB1DDDF2260092C37D /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		883FBBAD1DDEEF4B0092C37D /* ComputerPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerPlayer.swift; sourceTree = "<group>"; };
 		884C818E1DD46666001107B4 /* NimGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884C81911DD46666001107B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		884C81961DD46666001107B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 				883FBB9A1DDDDCAA0092C37D /* Player.swift */,
 				883FBBA51DDDDD5F0092C37D /* Game.swift */,
 				883FBBA71DDDDD740092C37D /* SettingsManager.swift */,
+				883FBBAD1DDEEF4B0092C37D /* ComputerPlayer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,6 +96,14 @@
 				883FBBA01DDDDCBA0092C37D /* ViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		883FBBAA1DDDF2100092C37D /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				883FBBAB1DDDF2260092C37D /* Tool.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		884C81851DD46666001107B4 = {
@@ -114,6 +127,7 @@
 		884C81901DD46666001107B4 /* NimGame */ = {
 			isa = PBXGroup;
 			children = (
+				883FBBAA1DDDF2100092C37D /* Tool */,
 				883FBB991DDDDCAA0092C37D /* Model */,
 				883FBB9C1DDDDCBA0092C37D /* ViewControllers */,
 				884C81951DD46666001107B4 /* Main.storyboard */,
@@ -245,6 +259,8 @@
 				883FBB9B1DDDDCAA0092C37D /* Player.swift in Sources */,
 				883FBBA81DDDDD740092C37D /* SettingsManager.swift in Sources */,
 				884C81921DD46666001107B4 /* AppDelegate.swift in Sources */,
+				883FBBAC1DDDF2260092C37D /* Tool.swift in Sources */,
+				883FBBAE1DDEEF4B0092C37D /* ComputerPlayer.swift in Sources */,
 				883FBBA11DDDDCBA0092C37D /* ScoreViewController.swift in Sources */,
 				883FBBA21DDDDCBA0092C37D /* SettingsViewController.swift in Sources */,
 			);

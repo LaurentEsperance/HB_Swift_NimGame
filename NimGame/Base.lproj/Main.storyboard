@@ -240,17 +240,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rf-8r-gJM">
-                                <frame key="frameInset" minX="156" minY="131" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rf-8r-gJM">
                                 <accessibility key="accessibilityConfiguration" identifier="rand_start_switch"/>
                                 <connections>
                                     <action selector="ui_switchChanged" destination="aFc-Qn-hlP" eventType="valueChanged" id="ePk-NE-nLl"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Random Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNE-pv-MqE">
-                                <frame key="frameInset" minX="16" minY="136" width="106" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNE-pv-MqE">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -262,23 +258,60 @@
                                     <action selector="ui_backButton" destination="aFc-Qn-hlP" eventType="touchUpInside" id="7CJ-tQ-p1b"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-Y8-aT0">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2 name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTe-cD-Kl2">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Joueur 1" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OwK-HW-pt3">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Joueur 2" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zt-7A-9IK">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9rf-8r-gJM" firstAttribute="baseline" secondItem="lNE-pv-MqE" secondAttribute="baseline" id="1JL-OY-3mD"/>
+                            <constraint firstItem="3zt-7A-9IK" firstAttribute="leading" secondItem="vk7-D1-6R1" secondAttribute="leading" id="1R9-LW-VWi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vk7-D1-6R1" secondAttribute="trailing" constant="20" id="2xa-4Q-pjF"/>
-                            <constraint firstItem="Kxx-FV-lFp" firstAttribute="top" secondItem="B7G-2f-zyc" secondAttribute="bottom" constant="129" id="73L-tV-yyI"/>
+                            <constraint firstItem="OwK-HW-pt3" firstAttribute="baseline" secondItem="yIn-Y8-aT0" secondAttribute="baseline" id="9ur-iV-Syb"/>
                             <constraint firstItem="Kxx-FV-lFp" firstAttribute="centerX" secondItem="5WT-ja-5r9" secondAttribute="centerX" id="BKv-9G-uuU"/>
                             <constraint firstItem="CFa-24-c45" firstAttribute="top" secondItem="qp1-cU-xS8" secondAttribute="bottom" constant="30" id="Fzz-9t-s9q"/>
                             <constraint firstAttribute="leadingMargin" secondItem="CFa-24-c45" secondAttribute="leading" id="GNl-u0-ev0"/>
+                            <constraint firstItem="9rf-8r-gJM" firstAttribute="leading" secondItem="vk7-D1-6R1" secondAttribute="leading" id="Gyn-3a-TqS"/>
+                            <constraint firstItem="yIn-Y8-aT0" firstAttribute="top" secondItem="lNE-pv-MqE" secondAttribute="bottom" constant="15" id="JQm-t6-AI5"/>
+                            <constraint firstItem="3zt-7A-9IK" firstAttribute="trailing" secondItem="vk7-D1-6R1" secondAttribute="trailing" id="N7i-Rd-h6y"/>
+                            <constraint firstItem="9rf-8r-gJM" firstAttribute="centerY" secondItem="lNE-pv-MqE" secondAttribute="centerY" id="Neq-0U-7aT"/>
                             <constraint firstItem="vk7-D1-6R1" firstAttribute="baseline" secondItem="CFa-24-c45" secondAttribute="baseline" id="NhZ-9h-1Yt"/>
+                            <constraint firstItem="yIn-Y8-aT0" firstAttribute="leading" secondItem="lNE-pv-MqE" secondAttribute="leading" id="Nxk-O4-ik7"/>
+                            <constraint firstItem="Kxx-FV-lFp" firstAttribute="top" secondItem="3zt-7A-9IK" secondAttribute="bottom" constant="97" id="WuW-kw-taO"/>
+                            <constraint firstItem="OwK-HW-pt3" firstAttribute="trailing" secondItem="vk7-D1-6R1" secondAttribute="trailing" id="Z81-Ae-PM1"/>
                             <constraint firstItem="qp1-cU-xS8" firstAttribute="top" secondItem="B7G-2f-zyc" secondAttribute="bottom" constant="8" id="aef-VA-WD9"/>
                             <constraint firstItem="vk7-D1-6R1" firstAttribute="leading" secondItem="CFa-24-c45" secondAttribute="trailing" constant="37" id="e2a-3O-D25"/>
                             <constraint firstItem="qp1-cU-xS8" firstAttribute="centerX" secondItem="5WT-ja-5r9" secondAttribute="centerX" id="edQ-KE-KNQ"/>
+                            <constraint firstItem="PTe-cD-Kl2" firstAttribute="leading" secondItem="yIn-Y8-aT0" secondAttribute="leading" id="fhB-Vi-r81"/>
+                            <constraint firstItem="lNE-pv-MqE" firstAttribute="leading" secondItem="CFa-24-c45" secondAttribute="leading" id="hT6-c8-cI7"/>
+                            <constraint firstItem="lNE-pv-MqE" firstAttribute="top" secondItem="CFa-24-c45" secondAttribute="bottom" constant="13.5" id="lvB-c3-bAC"/>
+                            <constraint firstItem="OwK-HW-pt3" firstAttribute="leading" secondItem="vk7-D1-6R1" secondAttribute="leading" id="lwn-ut-geL"/>
+                            <constraint firstItem="3zt-7A-9IK" firstAttribute="baseline" secondItem="PTe-cD-Kl2" secondAttribute="baseline" id="rLF-Db-e0i"/>
+                            <constraint firstItem="PTe-cD-Kl2" firstAttribute="top" secondItem="yIn-Y8-aT0" secondAttribute="bottom" constant="20" id="uRp-Yr-jKR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Réglages" id="haN-9y-p4z"/>
                     <connections>
                         <outlet property="ui_nbMaxMatchesLabel" destination="vk7-D1-6R1" id="hZR-JT-YGF"/>
+                        <outlet property="ui_player1NameLabel" destination="OwK-HW-pt3" id="wuf-g5-a1I"/>
+                        <outlet property="ui_player2NameLabel" destination="3zt-7A-9IK" id="CHv-XV-zwu"/>
                         <outlet property="ui_randomStartSwitch" destination="9rf-8r-gJM" id="JWf-qU-GU1"/>
                     </connections>
                 </viewController>

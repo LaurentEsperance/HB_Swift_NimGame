@@ -51,8 +51,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     private var _game:Game?
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ui_pickerView.dataSource = self
@@ -83,7 +81,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     private func newGame(nbPlayers:Int){
-        _game = Game(p1: Player(name:"Toto"), p2: Player(name:"Tata"), nbMatches: SettingsManager.instance.initialMatchesCount)
+        if nbPlayers == 1 {
+            _game = Game(p1: Player(name:"Toto"), p2: ComputerPlayer.instance, nbMatches: SettingsManager.instance.initialMatchesCount)
+        } else {
+            _game = Game(p1: Player(name:"Toto"), p2: Player(name:"Tata"), nbMatches: SettingsManager.instance.initialMatchesCount)
+        }
         let playerString:String = (nbPlayers == 1) ? "player" : "players"
         ui_gameLabel.text =  "\(nbPlayers) \(playerString) mode"
         ui_gameLabel.isHidden = false
@@ -99,6 +101,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             if gameInProgress.isGameOver,
                 let gameWinner = gameInProgress.winner{
                 ui_gameTxtView.text! += "\(gameWinner.name) wins"
+                gameWinner.win()
             } else {
                 ui_currentPlayerLabel.text = gameInProgress.currentPlayer.name
             }
@@ -107,7 +110,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             ui_but3Matches.isHidden = nbMatchesInGame < 3
         }
     }
-    
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -152,50 +154,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
         updateDisplay()
     }
-    /*
-    func gameMoveForward(){
-        turn += 1
-        print("At turn \(turn) there is \(nbMatches) matches in the game")
-        
-        joueurEnCours = (joueurEnCours == 1) ? 2 : 1
-        curPlayer = (joueurEnCours == 1) ? firstPLayer : secondPlayer
-        
-        if (nbMatches <= 0) {
-            ui_gameTxtView.text! += "\(curPlayer.name) wins\n"
-            curPlayer.score += 10
-        } else {
-            displayMatches(nbMatches: nbMatches)
-            displayProgressBar(nbMatches: nbMatches)
-            if (joueurEnCours == 2) {
-                if (isPlayer2TheComputer) {
-                    let nbMatchesChosenByComputer = nbAllumettesIA(nbAllumettesEnJeu: nbMatches)
-                    nbMatches -= nbMatchesChosenByComputer
-                    gameMoveForward()
-                }
-            }
-            ui_currentPlayerLabel.text = curPlayer.name
-        }
-        ui_but1Match.isHidden = (nbMatches < 1) ? true : false
-        ui_but2Matches.isHidden = (nbMatches < 2) ? true : false
-        ui_but3Matches.isHidden = (nbMatches < 3) ? true : false
-    }*/
-    /*
-    func NimGame(nbPlayer:String) {
-        // Prepare the launch of the game
-        ui_gameLabel.text = nbPlayer + " mode"
-        getPlayers(nbPlayer: nbPlayer)
-        ui_gameLabel.isHidden = false
-        ui_gameView.isHidden = false
-        isPlayer2TheComputer = (nbPlayer == onePlayer)
-        // The first player is chosen randomly
-        if (userDefaults.bool(forKey: "IS_START_RANDOM")) {
-           joueurEnCours = generateRandomNumber(min: 1, max: 2)
-        } else {
-            joueurEnCours = 2
-        }
-        gameMoveForward()
-    }*/
-    
+
     func displayMatches(nbMatches:Int) {
         var matchesToDisplay:String = ""
         for _ in 0..<nbMatches {
@@ -209,21 +168,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         ui_gameProgressV.progress = progressPercentage
     }
     
-    func nbAllumettesIA(nbAllumettesEnJeu:Int)->Int{
-        var nbAllumettesChoisieParOrdinateur:Int = (nbAllumettesEnJeu - 1) % 4
-        if (nbAllumettesChoisieParOrdinateur == 0) {
-            nbAllumettesChoisieParOrdinateur = generateRandomNumber(min: 1, max: min(3,nbAllumettesEnJeu))
-        }
-        ui_gameTxtView.text! += "At turn \(turn) the computer had taken \(nbAllumettesChoisieParOrdinateur) matches\n"
-        return nbAllumettesChoisieParOrdinateur
-    }
-    
-    func generateRandomNumber(min:Int, max:Int) -> Int {
-        let range = max-min + 1
-        return Int(arc4random_uniform(UInt32(range))) + min
-    }
-    
-    func getPlayers(nbPlayer:String){
+    /*func getPlayers(nbPlayer:String){
         if (nbPlayer == onePlayer){
             // TODO launch a picker to choose the first player
             firstPLayer = playerExample1
@@ -236,7 +181,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             // launch a picker to choose the second player
             secondPlayer = playerExample2
         }
-    }
+    }*/
     
     func createPlayer() -> Player{
         let playerName:String = ""

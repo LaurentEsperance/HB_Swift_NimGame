@@ -14,6 +14,9 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var ui_randomStartSwitch: UISwitch!
     @IBOutlet weak var ui_nbMaxMatchesLabel: UITextField!
+    @IBOutlet weak var ui_player1NameLabel: UITextField!
+    @IBOutlet weak var ui_player2NameLabel: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +53,8 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
         {
             SettingsManager.instance.initialMatchesCount = intValNbMatches
         }
+        
+        
         return false
     }
     
@@ -65,5 +70,6 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
     @IBAction func ui_switchChanged() {
         SettingsManager.instance.randomStart = ui_randomStartSwitch.isOn
     }
+    
     
 }
