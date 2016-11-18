@@ -21,14 +21,18 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ui_nbMaxMatchesLabel.delegate = self
+        ui_player1NameLabel.delegate = self
+        ui_player2NameLabel.delegate = self
         // Do any additional setup after loading the view.
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
         ui_nbMaxMatchesLabel.text = String(SettingsManager.instance.initialMatchesCount)
         ui_randomStartSwitch.isOn = SettingsManager.instance.randomStart
+        ui_player1NameLabel.text = SettingsManager.instance.player1Name
+        ui_player2NameLabel.text = SettingsManager.instance.player2Name
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,11 +43,16 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
     // Delegate function on TextField
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         var isTheLabelAnInteger: Bool = false
-        if let textFromNbMatchesMaxLabel = ui_nbMaxMatchesLabel.text {
-            isTheLabelAnInteger = (Int(textFromNbMatchesMaxLabel) != nil)
+        if (textField == ui_nbMaxMatchesLabel) {
+            if let textFromNbMatchesMaxLabel = ui_nbMaxMatchesLabel.text {
+                isTheLabelAnInteger = (Int(textFromNbMatchesMaxLabel) != nil)
+            }
+        } else {
+            isTheLabelAnInteger = true
         }
         return isTheLabelAnInteger
     }
+    
     
     // Delegate function on TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -54,6 +63,23 @@ class SettingsViewController: UIViewController,UITextFieldDelegate {
             SettingsManager.instance.initialMatchesCount = intValNbMatches
         }
         
+        if let player1Name:String = ui_player1NameLabel.text {
+            if player1Name.characters.count != 0 {
+                SettingsManager.instance.player1Name = player1Name
+                ui_player1NameLabel.placeholder = player1Name
+            } else {
+                SettingsManager.instance.player1Name = ui_player1NameLabel.placeholder!
+            }
+        }
+        
+        if let player2Name:String = ui_player2NameLabel.text {
+            if !player2Name.isEmpty {
+                SettingsManager.instance.player2Name = player2Name
+                ui_player2NameLabel.placeholder = ui_player2NameLabel.text
+            } else {
+                SettingsManager.instance.player2Name = ui_player2NameLabel.placeholder!
+            }
+        }
         
         return false
     }

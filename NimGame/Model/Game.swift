@@ -16,8 +16,8 @@ class Game {
     private var _currentPlayer : Player
     
     init() {
-        _player1 = Player(name: "", score: 0)
-        _player2 = Player(name: "", score: 0)
+        _player1 = Player(name: "")
+        _player2 = Player(name: "")
         _matchesCount = 0
         // Need to initialize all the variables before using a function
         _currentPlayer = _player1

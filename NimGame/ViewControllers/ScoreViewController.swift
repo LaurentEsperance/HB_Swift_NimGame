@@ -9,11 +9,10 @@
 import UIKit
 
 class ScoreViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-    static var player1:Player = Player(name: "Toto", score: 10)
-    static var player2:Player = Player(name: "Tata", score: 20)
-    static var player3:Player = Player(name: "Titi", score: 30)
-    var playerTable:[Player] = [player1, player2, player3]
-    
+
+    var playerListNames: [String] = []
+    var playerListScores : [Int] = []
+    var sortedKeys:[(key:String, value:Int)] = []
     
     @IBOutlet weak var ui_scoresTableView: UITableView!
     
@@ -21,8 +20,12 @@ class ScoreViewController: UIViewController,UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         ui_scoresTableView.delegate = self
         ui_scoresTableView.dataSource = self
-        self.ui_scoresTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        // Do any additional setup after loading the view.
+        
+        let playerDictonary = SettingsManager.instance.playerList
+        
+        sortedKeys = playerDictonary.sorted{ $0.value > $1.value }
+        print(sortedKeys)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,23 +38,24 @@ class ScoreViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.playerTable.count
+        return self.sortedKeys.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "TableViewCell"
         let cellc = self.ui_scoresTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
-        //cellc.textLabel?.text = playerTable[indexPath.row]._name
-        cellc.ui_playerNameLabel.text = playerTable[indexPath.row].name
-        cellc.ui_playerScoreLabel.text = String(playerTable[indexPath.row].score)
-
+        let tupleInSortedList = sortedKeys[indexPath.row]
+        print(tupleInSortedList)
+        print(tupleInSortedList.key)
+        cellc.displayNameAndScore(playerName: tupleInSortedList.key, playerScore: tupleInSortedList.value)
         return cellc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Player \(playerTable[indexPath.row].name) has been chosen")
+       
     }
+    
     /*
     // MARK: - Navigation
 

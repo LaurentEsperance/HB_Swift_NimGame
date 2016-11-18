@@ -10,7 +10,6 @@ import Foundation
 
 class ComputerPlayer: Player {
     private var _name:String = ""
-    private static var _score:Int = 0
     private static var singleInstance:ComputerPlayer?
     
     public static var instance:ComputerPlayer {
@@ -20,13 +19,8 @@ class ComputerPlayer: Player {
         return singleInstance!
     }
     
-    override var score: Int{
-        get{
-            return ComputerPlayer._score
-        }
-        set {
-            ComputerPlayer._score = newValue
-        }
+    override func win() {
+        super.win()
     }
     
     override private init() {

@@ -358,8 +358,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="ui_playerNameLabel" destination="4oO-VW-6hA" id="rh9-HK-szt"/>
-                                            <outlet property="ui_playerScoreLabel" destination="Fo1-gg-Ea0" id="mdC-AF-HNv"/>
+                                            <outlet property="ui_playerNameLabel" destination="4oO-VW-6hA" id="Hbd-m2-pFb"/>
+                                            <outlet property="ui_playerScoreLabel" destination="Fo1-gg-Ea0" id="Oii-Ub-YFd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

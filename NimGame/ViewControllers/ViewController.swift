@@ -82,9 +82,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     private func newGame(nbPlayers:Int){
         if nbPlayers == 1 {
-            _game = Game(p1: Player(name:"Toto"), p2: ComputerPlayer.instance, nbMatches: SettingsManager.instance.initialMatchesCount)
+            //_game = Game(p1: Player(name:"Toto"), p2: ComputerPlayer.instance, nbMatches: SettingsManager.instance.initialMatchesCount)
+            _game = Game(p1: Player(name:SettingsManager.instance.player1Name), p2: ComputerPlayer.instance, nbMatches: SettingsManager.instance.initialMatchesCount)
         } else {
-            _game = Game(p1: Player(name:"Toto"), p2: Player(name:"Tata"), nbMatches: SettingsManager.instance.initialMatchesCount)
+            //_game = Game(p1: Player(name:"Toto"), p2: Player(name:"Tata"), nbMatches: SettingsManager.instance.initialMatchesCount)
+            _game = Game(p1: Player(name:SettingsManager.instance.player1Name), p2: Player(name:SettingsManager.instance.player2Name), nbMatches: SettingsManager.instance.initialMatchesCount)
         }
         let playerString:String = (nbPlayers == 1) ? "player" : "players"
         ui_gameLabel.text =  "\(nbPlayers) \(playerString) mode"
@@ -102,6 +104,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 let gameWinner = gameInProgress.winner{
                 ui_gameTxtView.text! += "\(gameWinner.name) wins"
                 gameWinner.win()
+                var playersDictonary = SettingsManager.instance.playerList
+                playersDictonary[gameWinner.name] = gameWinner.score
+                SettingsManager.instance.playerList = playersDictonary
+                print(playersDictonary)
             } else {
                 ui_currentPlayerLabel.text = gameInProgress.currentPlayer.name
             }

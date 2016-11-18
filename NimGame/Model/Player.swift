@@ -37,6 +37,12 @@ class Player {
     init(name:String) {
         self._name = name
         self._score = 0
+        var playersDictonary = SettingsManager.instance.playerList
+        if playersDictonary[name] != nil {
+            self._score = playersDictonary[name]!
+        }
+        playersDictonary[name] = _score
+        SettingsManager.instance.playerList = playersDictonary
     }
     
     init(name:String, score:Int) {
@@ -47,6 +53,7 @@ class Player {
     func win(){
         self._score += 10
     }
+    
     
 
 }

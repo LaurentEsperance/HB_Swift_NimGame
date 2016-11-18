@@ -15,6 +15,9 @@ class SettingsManager {
     private static let INITIAL_MATCHES_COUNT_KEY = "INITIAL_MATCHES_COUNT"
     private static let WIN_GAME_SCORE_BONUS_KEY = "WIN_GAME_SCORE_BONUS"
     private static let IS_START_RANDOM_KEY = "IS_START_RANDOM"
+    private static let PLAYER_1_NAME_KEY = "PLAYER_1_NAME"
+    private static let PLAYER_2_NAME_KEY = "PLAYER_2_NAME"
+    private static let PLAYER_LIST_KEY = "PLAYER_LIST"
     
     public static var instance:SettingsManager {
         if singleInstance == nil {
@@ -25,10 +28,12 @@ class SettingsManager {
     
     private init() {
         _userDefaults = UserDefaults.standard
+        let initDict : [String : Int] = ["test":0]
         let defaultsValues = [
             SettingsManager.INITIAL_MATCHES_COUNT_KEY:20,
             SettingsManager.WIN_GAME_SCORE_BONUS_KEY:10,
-            SettingsManager.IS_START_RANDOM_KEY:false
+            SettingsManager.IS_START_RANDOM_KEY:false,
+            SettingsManager.PLAYER_LIST_KEY:initDict
         ] as [String : Any]
         _userDefaults.register(defaults: defaultsValues)
     }
@@ -57,4 +62,30 @@ class SettingsManager {
         }
     }
     
+    var player1Name:String{
+        get{
+            return _userDefaults.string(forKey: SettingsManager.PLAYER_1_NAME_KEY)!
+        }
+        set{
+            _userDefaults.set(newValue,forKey: SettingsManager.PLAYER_1_NAME_KEY)
+        }
+    }
+
+    var player2Name:String{
+        get{
+            return _userDefaults.string(forKey: SettingsManager.PLAYER_2_NAME_KEY)!
+        }
+        set{
+            _userDefaults.set(newValue,forKey: SettingsManager.PLAYER_2_NAME_KEY)
+        }
+    }
+    
+    var playerList:[String:Int]{
+        get{
+            return _userDefaults.value(forKey: SettingsManager.PLAYER_LIST_KEY) as! [String : Int]
+        }
+        set {
+            _userDefaults.set(newValue, forKey: SettingsManager.PLAYER_LIST_KEY)
+        }
+    }
 }

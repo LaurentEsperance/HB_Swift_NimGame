@@ -23,5 +23,10 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func displayNameAndScore(playerName:String, playerScore:Int){
+        ui_playerNameLabel.text = playerName
+        ui_playerScoreLabel.text = String(playerScore)
+    }
 
 }
